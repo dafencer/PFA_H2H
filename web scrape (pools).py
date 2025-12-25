@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-# List of URLs for all legs
+# List of URLs for all legs (FencingTimeLive tournament url for the specific event)
 leg_urls = [
     'https://www.fencingtimelive.com/events/results/BC6BB9DF4F3C4698ABC67C7C981EA492',  # Leg 1
     'https://www.fencingtimelive.com/events/results/E04B7C8376F44EB9802B73BE4BF12F4E',  # Leg 2
@@ -72,7 +72,7 @@ for leg_index, website in enumerate(leg_urls, start=1):
                     score1 = cells[2].text.strip()
                     score2 = cells[3].text.strip()
                     left_fencer = cells[4].text.strip()
-                    pool_number = i + 1
+                    pool_number = f"pool{i + 1}"
                     all_bouts.append([leg_index, pool_number, right_fencer, score1, score2, left_fencer])
 
         # Close tab and return to main page
