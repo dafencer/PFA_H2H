@@ -26,6 +26,7 @@ $$
 $$
 
 - Combined data from pools and direct elimination (DE) matches into a single dataset.
+Refer to [data_cleaning.py](/blob/main/data_cleaning.py) for the data cleaning script.
 
 ## Exploratory Data Analysis
 
