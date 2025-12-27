@@ -46,23 +46,63 @@ df_de = df_de[df_de['Score'].notna() & (df_de['Score'] != "")]
 # Parse Scores
 scores_de = df_de['Score'].str.split('\n').str[0]
 scores_split = scores_de.str.split(' - ', expand=True).astype(int)
-score1 = scores_split[0]
-score2 = scores_split[1]
+score1_de = scores_split[0]
+score2_de = scores_split[1]
 
 right_score_de = df_de.apply(
-    lambda row: max(score1[row.name], score2[row.name])
+    lambda row: max(score1_de[row.name], score2_de[row.name])
                 if row['Winner'] == row['Right Fencer']
-                else min(score1[row.name], score2[row.name]),
+                else min(score1_de[row.name], score2_de[row.name]),
     axis=1
 )
 
 left_score_de = df_de.apply(
-    lambda row: max(score1[row.name], score2[row.name])
+    lambda row: max(score1_de[row.name], score2_de[row.name])
                 if row['Winner'] == row['Left Fencer']
-                else min(score1[row.name], score2[row.name]),
+                else min(score1_de[row.name], score2_de[row.name]),
     axis=1
 )
 
 # Create Margin of Victory
+mov_de = right_score_de - left_score_de
+
 # Create Outcome
+outcome_de = (mov_de > 0).astype(int)
+
 # Create Scaled Outcome
+scaled_outcome_de = 0.5 + (mov_de / (2 * pd.concat([right_score_de, left_score_de], axis=1).max(axis=1)))
+
+cleaned_df_de = pd.DataFrame({
+    'Leg': df_de['Leg'],
+    'Round': df_de['Round'],
+    'Right Fencer': df_de['Right Fencer'],
+    'Left Fencer': df_de['Left Fencer'],
+    'Right Score': right_score_de,
+    'Left Score': left_score_de,
+    'MOV': mov_de,
+    'Outcome': outcome_de,
+    'Scaled Outcome': scaled_outcome_de
+})
+
+
+# append pools and de
+cleaned_df_all_legs = pd.concat([cleaned_df_pools, cleaned_df_de], ignore_index=True)
+print(cleaned_df_all_legs)
+
+
+# Save to csv
+cleaned_df_all_legs.to_csv("cleaned_df_all_legs.csv", index=False)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
