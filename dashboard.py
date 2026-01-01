@@ -21,8 +21,8 @@ st.title("⚔️ Fencing Head-to-Head Matchup Dashboard")
 
 
 # ---------- Load Data ----------
-matches_df = pd.read_csv("cleaned_df_all_legs_we.csv")
-fencers_df = pd.read_csv("Women's Epee Ratings.csv")
+matches_df = pd.read_csv("/Users/dancanlas/Projects/fencing_glicko2/Women's Epee datasets/cleaned_df_all_legs_we.csv")
+fencers_df = pd.read_csv("/Users/dancanlas/Projects/fencing_glicko2/Women's Epee datasets/Women's Epee Ratings.csv")
 
 # ---------- Clean Fencer Names ----------
 fencers_df['player'] = fencers_df['player'].astype(str).str.strip().str.title()
