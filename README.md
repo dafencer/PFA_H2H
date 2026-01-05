@@ -21,12 +21,17 @@ The dashboard allows users to compare two fencers’ pool and direct elimination
 
 <div style="text-align: justify;">
 
-This project uses official tournament data from the **Philippine Fencing Association (PFA) National Rankings**, scraped directly from **FencingTimeLive**. Each dataset corresponds to **five legs of a national ranking season per weapon**.
+This project uses official tournament data from the **Philippine Fencing Association (PFA) Senior Rankings**, scraped directly from **FencingTimeLive**. Each dataset corresponds to **five legs of a national ranking season per weapon**.
 
 </div>
 
 Example data sources:
-- [FencingTimeLive – PFA National Rankings](https://www.fencingtimelive.com/)
+- [1st Leg PFA Senior Rankings- Women's Epee](https://www.fencingtimelive.com/events/results/BC6BB9DF4F3C4698ABC67C7C981EA492)
+- [1st Leg PFA Senior Rankings- Women's Foil](https://www.fencingtimelive.com/events/results/EF4AD5BC76F44A92938E9BF8A4382B99)
+- [1st Leg PFA Senior Rankings- Women's Saber](https://www.fencingtimelive.com/events/results/D67D97E1E0624E60AFE6BD65D60E1671)
+- [1st Leg PFA Senior Rankings- Men's Epee](https://www.fencingtimelive.com/events/results/76CB0AD0E6CE46BE9AF6C1B22A547E75)
+- [1st Leg PFA Senior Rankings- Men's Foil](https://www.fencingtimelive.com/events/results/1E4CF552A0894276ADC15A6ECEB579C3)
+- [1st Leg PFA Senior Rankings- Men's Saber](https://www.fencingtimelive.com/events/results/127C9B14E0A24F2A824030C5AC81675B)
 
 Separate datasets were collected for:
 - Pool bouts  
