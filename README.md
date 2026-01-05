@@ -8,6 +8,12 @@ The system combines **web-scraped bout-level data**, a **score-based Glicko-2 ra
 
 The dashboard allows users to compare two fencers’ pool and direct elimination (DE) performance, view separate Glicko-2 ratings for pools and DE bouts, examine head-to-head history, and generate probabilistic match predictions while explicitly accounting for rating uncertainty.
 
+<img width="1710" height="980" alt="image" src="https://github.com/user-attachments/assets/6793fe2c-1da1-4600-8223-3ed05fa3862f" />
+
+<img width="1710" height="981" alt="image" src="https://github.com/user-attachments/assets/1c654be4-c630-4f10-b3ae-7c9364c4ed97" />
+
+
+
 </div>
 
 ---
