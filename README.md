@@ -1,4 +1,4 @@
-# H2H Matchup Dashboard with Score-based Glicko-2 Rating Model for Fencing
+# Head-to-Head Match Outcome Prediction for Philippine Fencing Rankings Using a Score-Based Glicko-2 Model
 
 <div style="text-align: justify;">
 
