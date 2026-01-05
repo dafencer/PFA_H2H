@@ -9,11 +9,11 @@ import time
 
 # List of URLs for all legs (FencingTimeLive tournament url for the specific event)
 leg_urls = [
-    'https://www.fencingtimelive.com/events/results/1E4CF552A0894276ADC15A6ECEB579C3',  # Leg 1
-    'https://www.fencingtimelive.com/events/results/C32E1FC913124B0AB31AF033FF298C41',  # Leg 2
-    'https://www.fencingtimelive.com/events/results/01FF401CF55D48C4B84E94F1885E9A73',  # Leg 3
-    'https://www.fencingtimelive.com/events/results/74F4C54D8B1E4F429818345BC641E9B1',  # Leg 4
-    'https://www.fencingtimelive.com/events/results/7FE16DDA08CF4D688761C167368FE611',  # Leg 5
+    'https://www.fencingtimelive.com/events/results/127C9B14E0A24F2A824030C5AC81675B',  # Leg 1
+    'https://www.fencingtimelive.com/events/results/C2E92E78172249638BA67990ABB81EAE',  # Leg 2
+    'https://www.fencingtimelive.com/events/results/432B3D7ABF8145B7A13ECD6DB1F66D73',  # Leg 3
+    'https://www.fencingtimelive.com/events/results/C277D8A840A745BBB187C113FBE112E0',  # Leg 4
+    'https://www.fencingtimelive.com/events/results/68D27D2642314BA48F4443B0D081518B',  # Leg 5
 ]
 
 path = '/Users/dancanlas/chromedriver-mac-x64/chromedriver'
@@ -87,7 +87,7 @@ all_legs_df = pd.DataFrame(
 )
 
 # Save to CSV if desired
-all_legs_df.to_csv("Men's Foil datasets/all_legs_pool_bouts_mf.csv", index=False)
+all_legs_df.to_csv("Men's Saber datasets/all_legs_pool_bouts_ms.csv", index=False)
 
 # Close browser
 driver.quit()

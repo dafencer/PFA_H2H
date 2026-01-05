@@ -9,15 +9,37 @@ Created on Fri Jan  2 01:01:35 2026
 import numpy as np
 import pandas as pd
 
-df = pd.read_csv("/Users/dancanlas/Projects/fencing_glicko2/Dashboard/datasets/womens_epee/cleaned_df_all_legs_we.csv")
+df = pd.read_csv("/Users/dancanlas/Projects/fencing_glicko2/Dashboard/datasets/mens_saber/cleaned_df_all_legs_ms.csv")
 
-matches = pd.DataFrame({
-    'period': df['Leg'],
-    'player':  df['Right Fencer'],
-    'opponent':  df['Left Fencer'],
-    'player_score': df['Right Score'],
-    'opponent_score': df['Left Score']
+# Filter only pool matches
+df_pool = df[df['Round'].str.contains('pool', case=False, na=False)]
+df_de = df[~df['Round'].str.contains('pool', case=False, na=False)]
+
+
+
+
+matches_pool = pd.DataFrame({
+    'period': df_pool['Leg'],
+    'player':  df_pool['Right Fencer'],
+    'opponent':  df_pool['Left Fencer'],
+    'player_score': df_pool['Right Score'],
+    'opponent_score': df_pool['Left Score'],
+    'outcome': df_pool['Outcome'],
+    'round': df_pool['Round'],
+    'scaled_outcome': df_pool["Scaled Outcome"]
 })
+
+matches_de = pd.DataFrame({
+    'period': df_de['Leg'],
+    'player':  df_de['Right Fencer'],
+    'opponent':  df_de['Left Fencer'],
+    'player_score': df_de['Right Score'],
+    'opponent_score': df_de['Left Score'],
+    'outcome': df_de['Outcome'],
+    'round': df_de['Round'],
+    'scaled_outcome': df_de["Scaled Outcome"]
+})
+
 
 
 
@@ -75,9 +97,10 @@ def glicko2_ratings(matches, tau=0.5, init_rating=1500, init_RD=350, init_vol=0.
             # Compute s_j and opponent
             pl_matches['s'] = np.where(
                 pl_matches['player'] == pl,
-                0.5 + (pl_matches['player_score'] - pl_matches['opponent_score']) / (2 * pl_matches[['player_score', 'opponent_score']].max(axis=1)),
-                0.5 + (pl_matches['opponent_score'] - pl_matches['player_score']) / (2 * pl_matches[['player_score', 'opponent_score']].max(axis=1))
+                    pl_matches['scaled_outcome'],
+                    1 - pl_matches['scaled_outcome']
             )
+
             pl_matches['opp'] = np.where(pl_matches['player'] == pl, pl_matches['opponent'], pl_matches['player'])
             
             mu_j = ratings.set_index('player').loc[pl_matches['opp'], 'mu'].values
@@ -133,12 +156,13 @@ def glicko2_ratings(matches, tau=0.5, init_rating=1500, init_RD=350, init_vol=0.
     return ratings[['player', 'rating', 'RD', 'vol']].sort_values('rating', ascending=False)
 
 
-fencer_df = glicko2_ratings(matches)
+fencer_df_pools = glicko2_ratings(matches_pool)
+fencer_df_pools.rename(columns={'rating': 'rating_pool', 'RD': 'RD_pool', 'vol': 'vol_pool'}, inplace=True) 
+fencer_df_de = glicko2_ratings(matches_de)
+fencer_df_de.rename(columns={'rating': 'rating_de', 'RD': 'RD_de', 'vol': 'vol_de'}, inplace=True)
+fencer_df = fencer_df_pools.merge(fencer_df_de, on='player', how='outer')
 
 
-# Filter only pool matches
-df_pool = df[df['Round'].str.contains('pool', case=False, na=False)]
-df_de = df[~df['Round'].str.contains('pool', case=False, na=False)]
 
 
 
@@ -224,4 +248,4 @@ fencer_index['DE Losses'] = fencer_index['player'].map(total_de_losses)
 # ---------- Merge with ratings ----------
 fencer_ratings_index  = pd.merge(fencer_df, fencer_index, on='player', how='outer')  # keep all fencers
 
-fencer_ratings_index.to_csv("/Users/dancanlas/Projects/fencing_glicko2/Dashboard/datasets/womens_epee/Women's Epee Ratings.csv", index=False)
+fencer_ratings_index.to_csv("/Users/dancanlas/Projects/fencing_glicko2/Dashboard/datasets/mens_saber/Men's Saber Ratings.csv", index=False)
