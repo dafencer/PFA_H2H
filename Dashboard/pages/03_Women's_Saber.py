@@ -18,7 +18,7 @@ import plotly.graph_objects as go
 
 
 # ---------- Page Setup ----------
-st.set_page_config(page_title="Women's Epee Matchup", layout="wide")
+st.set_page_config(page_title="Women's Saber Matchup", layout="wide")
 
 
 
@@ -46,7 +46,7 @@ st.markdown(
 
 
 
-st.title("⚔️ Women's Epee Head-to-Head Matchup")
+st.title("⚔️ Women's Saber Head-to-Head Matchup")
 
 
 # ---------- Footer ----------
@@ -57,8 +57,8 @@ render_footer()
 
 
 # ---------- Load Data ----------
-matches_df = pd.read_csv("/Users/dancanlas/Projects/fencing_glicko2/Dashboard/datasets/womens_epee/cleaned_df_all_legs_we.csv")
-fencers_df = pd.read_csv("/Users/dancanlas/Projects/fencing_glicko2/Dashboard/datasets/womens_epee/Women's Epee Ratings.csv")
+matches_df = pd.read_csv("/Users/dancanlas/Projects/fencing_glicko2/Dashboard/datasets/womens_saber/cleaned_df_all_legs_ws.csv")
+fencers_df = pd.read_csv("/Users/dancanlas/Projects/fencing_glicko2/Dashboard/datasets/womens_saber/Women's Saber Ratings.csv")
 
 cols = ['Pool Wins', 'Pool Losses', 'DE Wins', 'DE Losses']
 fencers_df[cols] = fencers_df[cols].fillna(0).astype(int)
@@ -259,7 +259,7 @@ with left:
 
 
 
-# ---- Center Panel (Head to Head + Gauge) ----
+# ---- Center Panel --------
 with mid:
     # Head-to-Head Record with larger font
     st.markdown(
