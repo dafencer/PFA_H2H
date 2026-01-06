@@ -7,7 +7,7 @@ This project presents a <strong>Head-to-Head (H2H) analytics dashboard</strong> 
 The system combines <strong>web-scraped bout-level data</strong>, a <strong>score-based Glicko-2 rating model</strong>, and an <strong>interactive Streamlit dashboard</strong> to enable direct comparisons between any two fencers. Unlike traditional win/loss rating systems, this implementation incorporates <strong>margin of victory</strong> to better reflect match dominance and competitive intensity, particularly important in fencing where score differentials carry meaningful information. 
 
 <blockquote>
-In this score-based Glicko-2 model, ratings predict <strong>expected match intensity</strong> rather than purely win probability. The <code>scaled_outcome</code> uses the normalized score margin to indicate how decisively a fencer won a bout, allowing the model to capture both skill and dominance.
+In this score-based Glicko-2 model, ratings predict <strong>expected match intensity</strong> (win margin) rather than purely win probability. The <code>scaled_outcome</code> uses the normalized score margin to indicate how decisively a fencer won a bout, allowing the model to capture both skill and dominance.
 </blockquote>
 
 The dashboard allows users to compare two fencers’ pool and direct elimination (DE) performance, view separate Glicko-2 ratings for pools and DE bouts, examine head-to-head history, and generate probabilistic match predictions while explicitly accounting for rating uncertainty.
