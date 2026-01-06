@@ -83,13 +83,11 @@ Relevant script:
 
 ## Model Building and Validation
 
-A **custom score-based Glicko-2 rating model** was implemented from first principles in Python, following the official Glicko-2 framework while extending it to support **margin-aware outcomes**.  
+A **custom score-based Glicko-2 rating model** was implemented in Python by directly coding the rating, deviation, and volatility update formulas from the official Glicko-2 framework, and extending it to support **margin-aware outcomes**.  
 
 Instead of binary win–loss results, the model uses **scaled outcomes** derived from the normalized score margin of each bout:
 
-\[
-\text{scaled\_outcome} = 0.5 + \frac{\text{margin}}{2 \cdot \text{winning\_score}}
-\]
+$$ \text{Scaled Outcome} = 0.5 + \frac{\text{Margin of Victory}}{2 \times \text{Winning Score}} $$
 
 This normalization maps the raw margin to a **0–1 range**, with close matches near 0.5 and dominant victories closer to 1. Consequently, the ratings reflect both the likelihood of winning and the **expected intensity of the win**.
 
