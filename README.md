@@ -125,6 +125,10 @@ Score-Based Glicko-2 Model:
 | Saber  | Women  | 0.177919 | 0.142106 |
 | Saber  | Men    | 0.169079 | 0.095267 |
 
+The score-based Glicko-2 model generally achieves lower MAE than the standard Glicko-2 model, with the largest improvements observed in Direct Elimination (DE) bouts across most weapons and genders. This indicates that incorporating margin of victory improves prediction of observed match intensity, particularly in longer, high-stakes DE matches where score differentials better reflect dominance.
+
+Improvements in pool bouts are smaller and less consistent, likely due to the shorter 5-touch format limiting the informational value of score margins. Overall, the results support the use of margin-aware ratings to more accurately model fencing performance beyond binary win–loss outcomes.
+
 **Relevant scripts:**  
 - Model Validation: `model.py`  
 - Final Model Implementation: `glicko2.py`
