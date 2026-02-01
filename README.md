@@ -105,7 +105,25 @@ This separation accounts for structural differences between pool bouts (shorter,
 Model performance on the test set was evaluated using **mean absolute error (MAE)** between predicted and observed `scaled_outcome`. For comparison, MAE was also computed using a **standard Glicko-2 model**, applying the same ratings to predict `scaled_outcome`. This allows assessment of how the score-based extension relates to the traditional binary outcome approach.  
 
 **MAE Tables:**  
-<!-- Insert MAE tables here -->
+Standard Glicko-2 Model:
+| Weapon | Gender | Pool MAE | DE MAE |
+|--------|--------|----------|--------|
+| Epee   | Women  | 0.207575 | 0.140573 |
+| Epee   | Men    | 0.209168 | 0.142689 |
+| Foil   | Women  | 0.192148 | 0.140669 |
+| Foil   | Men    | 0.146476 | 0.173070 |
+| Saber  | Women  | 0.168483 | 0.186669 |
+| Saber  | Men    | 0.158769 | 0.118054 |
+
+Score-Based Glicko-2 Model:
+| Weapon | Gender | Pool MAE | DE MAE |
+|--------|--------|----------|--------|
+| Epee   | Women  | 0.155818 | 0.100145 |
+| Epee   | Men    | 0.176367 | 0.104063 |
+| Foil   | Women  | 0.182859 | 0.112401 |
+| Foil   | Men    | 0.158567 | 0.148709 |
+| Saber  | Women  | 0.177919 | 0.142106 |
+| Saber  | Men    | 0.169079 | 0.095267 |
 
 **Relevant scripts:**  
 - Model Validation: `model.py`  
