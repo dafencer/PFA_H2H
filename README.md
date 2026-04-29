@@ -1,4 +1,4 @@
-# Head-to-Head Match Outcome Prediction for Philippine Fencing Rankings Using a Score-Based Glicko-2 Model
+# Head-to-Head Match Outcome Prediction for Philippine Fencing Rankings Using a Score-Based Glicko-2 System
 
 <div style="text-align: justify;">
 
