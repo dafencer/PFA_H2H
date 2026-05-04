@@ -101,6 +101,15 @@ Two independent rating systems were computed:
 
 This separation accounts for structural differences between pool bouts (shorter, round-robin format) and DE matches (longer, elimination-based), allowing for more accurate modeling of performance.
 
+The expected match outcome is computed using the standard Glicko-2 formulation:
+$$
+\text{Expected Outcome} = \frac{1}{1 + \exp\left(-g(\phi_j)(\mu - \mu_j)\right)}
+$$
+
+where μ and μ_j are the Glicko-2 scale ratings of the player and opponent, respectively, and g(ϕ_j) is a scaling function based on the opponent’s rating deviation.
+
+This formulation is mathematically equivalent to a logistic regression model, where the rating difference (adjusted by uncertainty) serves as the predictor and the expected score represents the probability of winning. As such, match outcome prediction in Glicko-2 can be interpreted as a probabilistic model with a logistic link function.
+
 **Model Validation:**  
 Model performance on the test set was evaluated using **mean absolute error (MAE)** between predicted and observed `scaled_outcome`. For comparison, MAE was also computed using a **standard Glicko-2 model**, applying the same ratings to predict `scaled_outcome`. This allows assessment of how the score-based extension relates to the traditional binary outcome approach.  
 
