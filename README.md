@@ -102,6 +102,7 @@ Two independent rating systems were computed:
 This separation accounts for structural differences between pool bouts (shorter, round-robin format) and DE matches (longer, elimination-based), allowing for more accurate modeling of performance.
 
 The expected match outcome is computed using the standard Glicko-2 formulation:
+
 $$ \text{Expected Outcome} = \frac{1}{1 + \exp\left(-g(\phi_j)(\mu - \mu_j)\right)} $$
 
 where $\mu$ and $\mu_j$ are the Glicko-2 scale ratings of the player and opponent, respectively, and $g(\phi_j)$ is a scaling function based on the opponent’s rating deviation.
