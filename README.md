@@ -154,10 +154,10 @@ where $\mu$ and $\mu_j$ are the Glicko-2 scale ratings of the player and opponen
 This formulation is has the same functional form as logistic regression, where the rating difference (adjusted by uncertainty) serves as the predictor and the expected score represents the probability of winning. As such, match outcome prediction in Glicko-2 can be interpreted as a probabilistic model with a logistic link function.
 
 **Model Validation:**  
-Model performance on the test set was evaluated using **mean absolute error (MAE)** between predicted and observed `scaled_outcome`. For comparison, MAE was also computed using a **standard Glicko-2 model**, applying the same ratings to predict `scaled_outcome`. This allows assessment of how the score-based extension relates to the traditional binary outcome approach.  
+Model performance on the test set was evaluated using **mean absolute error (MAE)** between predicted and observed `scaled_outcome`. For comparison, MAE was also computed using a **Binary Glicko-2 model**, applying the same ratings to predict `scaled_outcome`. This allows assessment of how the score-based extension relates to the traditional binary outcome approach.  
 
 **MAE Tables:**  
-Standard Glicko-2 Model:
+Binary Glicko-2 Model:
 | Weapon | Gender | Pool MAE | DE MAE |
 |--------|--------|----------|--------|
 | Epee   | Women  | 0.207575 | 0.140573 |
@@ -177,7 +177,7 @@ Score-Based Glicko-2 Model:
 | Saber  | Women  | 0.177919 | 0.142106 |
 | Saber  | Men    | 0.169079 | 0.095267 |
 
-The score-based Glicko-2 model generally achieves lower MAE than the standard Glicko-2 model, with the largest improvements observed in Direct Elimination (DE) bouts across most weapons and genders. This indicates that incorporating margin of victory improves prediction of observed match intensity, particularly in longer, high-stakes DE matches where score differentials better reflect dominance.
+The score-based Glicko-2 model generally achieves lower MAE than the binary Glicko-2 model, with the largest improvements observed in Direct Elimination (DE) bouts across most weapons and genders. This indicates that incorporating margin of victory improves prediction of observed match intensity, particularly in longer, high-stakes DE matches where score differentials better reflect dominance.
 
 Improvements in pool bouts are smaller and less consistent, likely due to the shorter 5-touch format limiting the informational value of score margins. Overall, the results support the use of margin-aware ratings to more accurately model fencing performance beyond binary win–loss outcomes.
 
