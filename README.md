@@ -53,8 +53,6 @@ To aid interpretation of the dataset and model outputs, key fencing terms used i
 - **Direct Elimination (DE):**  
   Knockout stage consisting of longer bouts (first to 15 touches), where a single loss results in elimination.
 
---
-
 ### Match-Level Terms
 
 - **Touch:**  
@@ -68,8 +66,6 @@ To aid interpretation of the dataset and model outputs, key fencing terms used i
 
 - **Scaled Outcome:**  
   A normalized representation of match margin used in this project to capture match intensity.
-
----
 
 ### Rating System Terms
 
