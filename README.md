@@ -41,6 +41,54 @@ Separate datasets were collected for:
 - Direct Elimination (DE) tableau bouts  
 
 ---
+## Fencing Tournament Format and Terminologies
+
+To aid interpretation of the dataset and model outputs, key fencing terms used in this project are defined below:
+
+### Competition Structure
+
+- **Pool Bouts (Pools):**  
+  Round-robin stage where fencers compete in short bouts (first to 5 touches). Results are used for initial ranking and seeding.
+
+- **Direct Elimination (DE):**  
+  Knockout stage consisting of longer bouts (first to 15 touches), where a single loss results in elimination.
+
+---
+
+### Match-Level Terms
+
+- **Touch:**  
+  A valid point scored by a fencer.
+
+- **Winning Score:**  
+  Maximum number of touches required to win a bout (5 for pools, 15 for DE).
+
+- **Margin of Victory (MOV):**  
+  Difference between the winner’s and loser’s score.
+
+- **Scaled Outcome:**  
+  A normalized representation of match margin used in this project to capture match intensity.
+
+---
+
+### Rating System Terms
+
+- **Rating (μ):**  
+  Estimate of a fencer’s skill level.
+
+- **Rating Deviation (RD, φ):**  
+  Measure of uncertainty in a fencer’s rating.
+
+- **Volatility (σ):**  
+  Degree of fluctuation in a fencer’s performance over time.
+
+- **Rating Period:**  
+  A group of matches (in this project, a tournament leg) after which ratings are updated.
+
+- **Head-to-Head (H2H):**  
+  Historical match record between two specific fencers.
+
+---
 
 ## Data Collection
 
@@ -101,7 +149,7 @@ Two independent rating systems were computed:
 
 This separation accounts for structural differences between pool bouts (shorter, round-robin format) and DE matches (longer, elimination-based), allowing for more accurate modeling of performance.
 
-The expected match outcome is computed using the standard Glicko-2 formulation:
+The expected match outcome is computed using the [standard Glicko-2 formulation](https://www.glicko.net/glicko/glicko2.pdf):
 
 $$ \text{Expected Outcome} = \frac{1}{1 + \exp\left(-g(\phi_j)(\mu - \mu_j)\right)} $$
 
