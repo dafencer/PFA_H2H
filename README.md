@@ -12,7 +12,6 @@ The dashboard allows users to compare two fencers’ pool and direct elimination
 
 
 <img width="1710" height="975" alt="image" src="https://github.com/user-attachments/assets/6a71c3d7-7fde-486a-9e99-5ba0da22d8f4" />
-<img width="1710" height="981" alt="image" src="https://github.com/user-attachments/assets/1c654be4-c630-4f10-b3ae-7c9364c4ed97" />
 
 
 
